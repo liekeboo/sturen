@@ -1,5 +1,6 @@
+radio.setGroup(1)
 basic.forever(function () {
-    if (input.acceleration(Dimension.Y) < -1000) {
+    if (Math.abs(input.acceleration(Dimension.Y)) < -1000) {
         basic.showLeds(`
             . . # . .
             . # # # .
@@ -8,7 +9,7 @@ basic.forever(function () {
             . . # . .
             `)
     }
-    if (input.acceleration(Dimension.Y) > 1000) {
+    if (Math.abs(input.acceleration(Dimension.Y)) < 1000) {
         basic.showLeds(`
             . . # . .
             . . # . .
