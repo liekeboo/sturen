@@ -11,7 +11,7 @@ basic.forever(function () {
                 `)
             radio.sendNumber(1)
         }
-        if (input.acceleration(Dimension.Y) < -700) {
+        if (input.acceleration(Dimension.Y) < -700 && input.acceleration(Dimension.X) < -50) {
             basic.showLeds(`
                 . . # . .
                 . # # # .
@@ -21,7 +21,7 @@ basic.forever(function () {
                 `)
             radio.sendNumber(2)
         }
-        if (input.acceleration(Dimension.Y) > 700) {
+        if (true) {
             basic.showLeds(`
                 . . # . .
                 . . # . .
@@ -40,6 +40,36 @@ basic.forever(function () {
                 . . # . .
                 `)
             radio.sendNumber(4)
+        }
+        if (input.acceleration(Dimension.X) > 700) {
+            basic.showLeds(`
+                . . # . .
+                . . . # .
+                # # # # #
+                . . . # .
+                . . # . .
+                `)
+            radio.sendNumber(5)
+        }
+        if (input.acceleration(Dimension.X) > 700 && input.acceleration(Dimension.Y) > 700) {
+            basic.showLeds(`
+                # . . . .
+                . # . . .
+                . . # . #
+                . . . # #
+                . . # # #
+                `)
+            radio.sendNumber(6)
+        }
+        if (input.acceleration(Dimension.X) > 700 && input.acceleration(Dimension.Y) < -700) {
+            basic.showLeds(`
+                . . # # #
+                . . . # #
+                . . # . #
+                . # . . .
+                # . . . .
+                `)
+            radio.sendNumber(7)
         }
     } else {
         basic.clearScreen()
